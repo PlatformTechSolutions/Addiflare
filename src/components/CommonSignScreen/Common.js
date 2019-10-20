@@ -17,16 +17,16 @@ class Common extends Component {
         }
     }
 
-    onCLickHandler = () => {
-        const text = this.props.text;
-        if (text === 'Continue') {
-            this.props.navigation.navigate('SignIn2')
-        } else if (text === 'Submit') {
-            this.props.navigation.navigate('ConfirmPassword')
-        } else if (text === 'SignIn') {
-            this.props.navigation.navigate('Home')
-        }
-    }
+    // onCLickHandler = () => {
+    //     const text = this.props.text;
+    //     if (text === 'Continue') {
+    //         this.props.navigation.navigate('SignIn2')
+    //     } else if (text === 'Submit') {
+    //         this.props.navigation.navigate('ConfirmPassword')
+    //     } else if (text === 'SignIn') {
+    //         this.props.navigation.navigate('Home')
+    //     }
+    // }
 
     switchHandler = () => {
         const text = this.props.conditionalText
@@ -43,7 +43,7 @@ class Common extends Component {
                         <Text style={styles.userText}>{this.props.conditionalText}</Text>
                     </View>
                 </TouchableHighlight>}
-                <TouchableHighlight underlayColor='#fff' onPress={this.onCLickHandler} >
+                <TouchableHighlight underlayColor='#fff' onPress={this.props.SubmitData} >
                     <View style={{ paddingTop: 12 }}>
                         <View style={styles.continueContainer}>
                             <Text style={styles.continueText}>{this.props.text}</Text>

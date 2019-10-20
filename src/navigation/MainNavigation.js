@@ -12,36 +12,44 @@ import Profile from "../screens/Profile/Profile";
 import BlogUser from "../screens/BlogUser/BlogUser";
 import BlogPosts from "../screens/BlogUser/BlogPosts";
 
-const RootStack = createStackNavigator({
+const AuthNav = createStackNavigator({
+        SignIn: {
+                screen: SignIn
+            },
+            SignIn2: {
+                screen: SignIn2
+            },
+            SignUp: {
+                screen: SignUp
+            },
+            ForgotPassword: {
+                screen: ForgotPassword
+            },
+            ConfirmPassword: {
+                screen: ConfirmPassword
+            },
+});
+
+const switchNav = createSwitchNavigator({
+    Auth:AuthNav,
     Banner: {
         screen: Banner
     },
-    SignIn: {
-        screen: SignIn
-    },
-    SignIn2: {
-        screen: SignIn2
-    },
-    SignUp: {
-        screen: SignUp
-    },
-    ForgotPassword: {
-        screen: ForgotPassword
-    },
-    ConfirmPassword: {
-        screen: ConfirmPassword
-    },
-    Home: {
-        screen: Home
-    },
-   
+    Main: createStackNavigator({
+        Home: {
+            screen: Home
+        },
+    }, {
+        initialRouteName: 'Home',
+        headerMode: 'none'
+    })
 }, {
-    initialRouteName: 'Home',
+    initialRouteName: 'Banner',
     headerMode: 'none'
 })
 
 
 
-const AppNavigator = createAppContainer(RootStack)
+const AppNavigator = createAppContainer(switchNav)
 
 export default AppNavigator;
